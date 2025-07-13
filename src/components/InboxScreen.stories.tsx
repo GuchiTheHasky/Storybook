@@ -65,3 +65,30 @@ export const Error: Story = {
         },
     },
 };
+
+/// todo
+
+export const Empty: Story = {
+    parameters: {
+        msw: {
+            handlers: [
+                http.get('https://jsonplaceholder.typicode.com/todos?userId=1', () => {
+                    return HttpResponse.json([]);
+                }),
+            ],
+        },
+    },
+};
+
+export const LoadingSlow: Story = {
+    parameters: {
+        msw: {
+            handlers: [
+                http.get('https://jsonplaceholder.typicode.com/todos?userId=1', async () => {
+                    await new Promise((resolve) => setTimeout(resolve, 2000));
+                    return HttpResponse.json(MockedState.tasks);
+                }),
+            ],
+        },
+    },
+};
