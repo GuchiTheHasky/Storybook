@@ -10,6 +10,8 @@ type TaskProps = {
     onPinTask: (id: string) => void;
 };
 
+
+
 export default function Task({
                                  task: { id, title, state },
                                  onArchiveTask,
