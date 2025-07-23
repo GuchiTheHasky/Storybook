@@ -14,6 +14,7 @@ type TaskProps = {
 
 
 
+
 export default function Task({
                                  task: { id, title, state },
                                  onArchiveTask,
